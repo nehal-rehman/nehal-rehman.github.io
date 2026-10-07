@@ -101,17 +101,18 @@ nav a:hover, .links a:hover, .contact-links a:hover { color: var(--accent); }
 }
 .pipeline i { color: var(--accent); font-style: normal; }
 
-.project-list { border-top: 1px solid var(--line); }
+.project-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .project {
-  display: grid; grid-template-columns: 1fr 2.5fr 1fr; gap: 35px;
-  padding: 32px 0; border-bottom: 1px solid var(--line); align-items: start;
+  display: flex; flex-direction: column; gap: 10px; padding: 24px;
+  background: var(--paper); border: 1px solid var(--line); transition: .2s;
 }
-.project h3 { margin: 0; }
-.project p { margin: 0; }
-.project-meta { padding-top: 4px; }
-.metrics { display: flex; flex-wrap: wrap; gap: 7px; justify-content: flex-end; }
+.project:hover { border-color: var(--ink); transform: translateY(-3px); }
+.project h3 { margin: 4px 0 0; font-size: 19px; }
+.project p { margin: 0; font-size: 14px; line-height: 1.6; flex: 1; }
+.project-meta { font-size: 10px; }
+.metrics { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .metrics span {
-  border: 1px solid var(--line); padding: 5px 8px;
+  border: 1px solid var(--line); padding: 4px 8px;
   font: 10px "DM Mono", monospace; color: var(--muted);
 }
 
@@ -158,8 +159,7 @@ footer { background: var(--dark); color: #999; padding: 25px 0; font: 10px "DM M
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; gap: 45px; }
   .research-grid { grid-template-columns: 1fr 1fr; }
-  .project { grid-template-columns: 1fr; gap: 12px; }
-  .metrics { justify-content: flex-start; }
+  .project-list { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 650px) {
   .container, .narrow { width: min(calc(100% - 30px), var(--max)); }
@@ -167,8 +167,12 @@ footer { background: var(--dark); color: #999; padding: 25px 0; font: 10px "DM M
   nav { gap: 10px 15px; }
   .hero { padding: 65px 0; }
   .section { padding: 70px 0; }
-  .research-grid, .opportunity-grid, .cv-grid { grid-template-columns: 1fr; }
+  .research-grid, .opportunity-grid, .cv-grid, .project-list { grid-template-columns: 1fr; }
   .timeline article, .education-card { grid-template-columns: 1fr; gap: 8px; }
   .profile-card { box-shadow: 6px 6px 0 #e4e4dd; }
   .pipeline { justify-content: flex-start; }
 }
+
+.role-type { font-size: 13px; margin: 0 0 10px; color: var(--muted) !important; }
+.timeline ul { margin: 0; padding-left: 18px; }
+.timeline li { color: #4f4f49; font-size: 15px; margin: 6px 0; }
